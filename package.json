@@ -1,5 +1,5 @@
 {
-  "name": "loopback4-typeorm",
+  "name": "loopback-4-typeorm",
   "version": "0.5.1",
   "description": "Typeorm extension for loopback next.",
   "keywords": [
