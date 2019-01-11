@@ -20,7 +20,7 @@ export function TypeORMBootMixin<T extends Constructor<any>>(superClass: T) {
   return class extends superClass {
     async bootTypeOrm(): Promise<void> {
       const options = this.bootOptions.typeorm;
-      const connection = await createConnection(options.ormconfig);
+      const connection = await createConnection(options.ormconfig || undefined);
 
       this.bind('typeorm.connection').to(this._connection);
 
