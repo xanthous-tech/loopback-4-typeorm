@@ -20,14 +20,14 @@ export function TypeORMBootMixin<T extends Constructor<any>>(superClass: T) {
   return class extends superClass {
     async bootTypeOrm(): Promise<void> {
       const options = this.bootOptions.typeorm;
-      const connection = await createConnection(options.ormConfig);
+      const connection = await createConnection(options.ormconfig);
 
       this.bind('typeorm.connection').to(this._connection);
 
       const repoFiles = loadRepoFiles(this.projectRoot);
       const repos = loadClassesFromFiles(repoFiles, this.projectRoot);
 
-      const files = loadFiles(this.projectRoot, options.ormConfig);
+      const files = loadFiles(this.projectRoot, options.modelsDir);
       const models = loadClassesFromFiles(files, this.projectRoot);
 
       models.forEach(m => {
