@@ -78,6 +78,8 @@ export class User {
 Optionally, we define a custom repository. This is going to hold our custom methods if any needed.
 
 ```typescript
+import {EntityRepository, Repository} from 'loopback-4-typeorm';
+
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
   /**
@@ -89,6 +91,10 @@ export class UserRepository extends Repository<User> {
 It's now time to give it a try!
 
 ```typescript
+/**
+ * Here we import 'repository' from `loopback-4-typeorm` package
+ */
+import {repository} from 'loopback-4-typeorm';
 import {User} from '../models';
 
 export class UserController {
